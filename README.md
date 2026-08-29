@@ -78,6 +78,26 @@ z: 05a9bb9469d1fab9f9fd5278c1a5807ba05af017bb5af53d72893da036d53651
 ============================================================
 ✅ Signature VALID — matches public key and transaction hash.
 ```
+### Reservoir Sampling Verification (Statistical)
+
+For large files (5+ GB), the companion script `verify_monthly.py` performs **reservoir sampling** over all `(key, r, s, z)` tuples via `ijson` without loading the file into memory, then cryptographically verifies the sample:
+
+```
+$ python3 verify_monthly.py btc_groups_2013_Q1.json 500
+Streaming btc_groups_2013_Q1.json ... (reservoir k=500)
+  ...20000 kluczy, 123456 sygnatur
+  ...40000 kluczy, 248912 sygnatur
+Kluczy: 52341   Sygnatur: 328914
+
+=== WYNIK (probka 500 sygnatur) ===
+  POPRAWNE (verify OK):   500
+  BLEDNE   (verify FAIL): 0
+  Skutecznosc: 100.00%
+
+OK: EKSTRAKCJA POPRAWNA (r,s,z + pubkey zgodne z ECDSA)
+```
+
+This random-sample approach provides statistical confidence that **all** signatures in the corpus are valid, not just individually tested ones.
 
 ## 5. Research Applications
 
@@ -97,7 +117,8 @@ This corpus is intended for, but not limited to, the following lines of investig
 | `verify_sig.py` | Cryptographic verification script (ecdsa / coincurve) |
 | `sample.json` | Anonymized sample (~10 MB) of public keys with signatures from the Q1 2013 sub-corpus |
 | `sample2.json` | Anonymized sample (~10 MB) of public keys with signatures from the 2010 - 2012 sub-corpus |
-| `LICENSE` | Usage terms |
+| `metadata.json` | Exact counts and format specification for the full corpus |
+| `LICENSE` | CC BY-NC 4.0 — Research Use License |
 
 ## 7. Access and Licensing
 
