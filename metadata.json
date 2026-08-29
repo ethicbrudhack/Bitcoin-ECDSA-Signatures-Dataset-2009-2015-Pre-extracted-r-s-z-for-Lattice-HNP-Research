@@ -1,0 +1,203 @@
+{
+  "corpus": "Bitcoin ECDSA Signatures (r, s, z) — Pre-extracted & Verified",
+  "version": "1.0",
+  "date": "2026-08",
+  "description": "Cryptographically verified ECDSA signature tuples extracted from P2PKH inputs of the Bitcoin blockchain, grouped by public key and sorted lexicographically.",
+  "extraction_pipeline": "BigQuery Storage API + multi-worker Python streaming + local cryptographic verification (coincurve/libsecp256k1). Optimus 4.8 (BigQuery instance) with custom 8-worker pipeline.",
+  "total": {
+    "files": 67,
+    "public_keys_approx": 68000000,
+    "signatures_approx": 152000000,
+    "size_gb_uncompressed": 45.0,
+    "size_gb_compressed_rar": 20.5
+  },
+  "periods": [
+    {
+      "period": "2010-01 – 2012-12",
+      "months": 36,
+      "files": 36,
+      "public_keys": 7758968,
+      "signatures": 20707191,
+      "size_gb": 5.3,
+      "note": "Individual monthly files merged into btc_groups_2009_2012.json (5.3 GB). Years 2009-2010 have negligible P2PKH activity (<100 sigs combined)."
+    },
+    {
+      "period": "2013-01",
+      "public_keys": 904232,
+      "signatures": 3009210,
+      "size_mb": 708
+    },
+    {
+      "period": "2013-02",
+      "public_keys": 874831,
+      "signatures": 3386345,
+      "size_mb": 778
+    },
+    {
+      "period": "2013-03",
+      "public_keys": 1045018,
+      "signatures": 3849978,
+      "size_mb": 891
+    },
+    {
+      "period": "2013-04",
+      "public_keys": 1346727,
+      "signatures": 3863822,
+      "size_mb": 933
+    },
+    {
+      "period": "2013-05",
+      "public_keys": 1180232,
+      "signatures": 3874818,
+      "size_mb": 914
+    },
+    {
+      "period": "2013-06",
+      "public_keys": 1033439,
+      "signatures": 3104603,
+      "size_mb": 743
+    },
+    {
+      "period": "2013-07",
+      "public_keys": 1113148,
+      "signatures": 2661683,
+      "size_mb": 667
+    },
+    {
+      "period": "2013-08",
+      "public_keys": 1450813,
+      "signatures": 3805490,
+      "size_mb": 935
+    },
+    {
+      "period": "2013-09",
+      "public_keys": 1219289,
+      "signatures": 3509586,
+      "size_mb": 847
+    },
+    {
+      "period": "2013-10",
+      "public_keys": 1473544,
+      "signatures": 3890187,
+      "size_mb": 914
+    },
+    {
+      "period": "2013-11",
+      "public_keys": 2370705,
+      "signatures": 4822182,
+      "size_mb": 1132
+    },
+    {
+      "period": "2013-12",
+      "public_keys": 2515977,
+      "signatures": 4818323,
+      "size_mb": 1130
+    },
+    {
+      "period": "2014-01",
+      "public_keys": 2188090,
+      "signatures": 4465187,
+      "size_mb": 1087
+    },
+    {
+      "period": "2014-02",
+      "public_keys": 2576421,
+      "signatures": 4999718,
+      "size_mb": 1206
+    },
+    {
+      "period": "2014-03",
+      "public_keys": 2997908,
+      "signatures": 5781698,
+      "size_mb": 1363
+    },
+    {
+      "period": "2014-04",
+      "public_keys": 2781467,
+      "signatures": 5347457,
+      "size_mb": 1278
+    },
+    {
+      "period": "2014-05",
+      "public_keys": 2692259,
+      "signatures": 5627206,
+      "size_mb": 1327
+    },
+    {
+      "period": "2014-06",
+      "public_keys": 2752504,
+      "signatures": 5277287,
+      "size_mb": 1283
+    },
+    {
+      "period": "2014-07",
+      "public_keys": 2899168,
+      "signatures": 5564395,
+      "size_mb": 1330
+    },
+    {
+      "period": "2014-08",
+      "public_keys": 3102021,
+      "signatures": 5979152,
+      "size_mb": 1420
+    },
+    {
+      "period": "2014-09",
+      "public_keys": 3156543,
+      "signatures": 6121046,
+      "size_mb": 1448
+    },
+    {
+      "period": "2014-10",
+      "public_keys": 3411308,
+      "signatures": 6709678,
+      "size_mb": 1585
+    },
+    {
+      "period": "2014-11",
+      "public_keys": 3513451,
+      "signatures": 7109688,
+      "size_mb": 1678
+    },
+    {
+      "period": "2014-12",
+      "public_keys": 3869730,
+      "signatures": 7656527,
+      "size_mb": 1805
+    },
+    {
+      "period": "2015-01",
+      "public_keys": 3941302,
+      "signatures": 7930855,
+      "size_mb": 1870
+    },
+    {
+      "period": "2015-02",
+      "public_keys": 3668526,
+      "signatures": 7706555,
+      "size_mb": 1820
+    }
+  ],
+  "sample": {
+    "file": "sample.json",
+    "size_mb": 10.5,
+    "public_keys": 14967,
+    "signatures": 41773,
+    "source": "btc_groups_2013_Q1.json (first keys, representative distribution)"
+  },
+  "format": {
+    "type": "JSON dictionary",
+    "key": "<pubkey_x_hex>_<pubkey_y_hex>",
+    "value": "[[r_hex, s_hex, z_hex], ...]",
+    "encoding": "hex (lowercase), 64 characters per field",
+    "s_value": "original non-low-S (as signed, not BIP-62 normalized)",
+    "sorting": "lexicographic by key string",
+    "access": "streaming-friendly via ijson (no full-file loading required)"
+  },
+  "verification": {
+    "method": "ECDSA verification: (s^-1·z)·G + (s^-1·r)·Q == R on secp256k1",
+    "library": "ecdsa (Python) + coincurve (libsecp256k1 via OpenSSL)",
+    "rate": "100.00% — all signatures verified against public key and transaction hash",
+    "scripts": ["verify_sig.py (single signature)", "verify_monthly.py (reservoir sampling, statistical)"]
+  }
+}
