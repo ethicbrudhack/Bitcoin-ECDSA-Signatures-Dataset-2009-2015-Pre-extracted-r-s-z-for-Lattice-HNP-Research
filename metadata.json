@@ -3,7 +3,7 @@
   "version": "1.0",
   "date": "2026-08",
   "description": "Cryptographically verified ECDSA signature tuples extracted from P2PKH inputs of the Bitcoin blockchain, grouped by public key and sorted lexicographically.",
-  "extraction_pipeline": "BigQuery Storage API + multi-worker Python streaming + local cryptographic verification (coincurve/libsecp256k1). Optimus 4.8 (BigQuery instance) with custom 8-worker pipeline.",
+  "extraction_pipeline": "Extracted using a custom Python pipeline with cryptographic verification via coincurve. Full details available upon request.",
   "total": {
     "files": 67,
     "public_keys_approx": 68000000,
