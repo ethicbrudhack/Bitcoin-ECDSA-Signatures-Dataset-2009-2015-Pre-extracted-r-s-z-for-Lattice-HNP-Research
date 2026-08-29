@@ -54,7 +54,7 @@ Keys are lexicographically sorted within each file, enabling efficient streaming
 | 2010 – 2012-12 | 1 | ~7.7 M | ~20 M | ~5.3 GB |
 | 2013 (monthly) | 12 | ~5.2 M | ~40 M | ~9.6 GB |
 | 2014 (monthly) | 12 | ~2.7 M | ~16 M | ~3.8 GB |
-| 2015-01 – 2015-02 | 2 | ~2.0 M | ~3 M | ~3.1 GB |
+| 2015-01 – 2015-02 | 2 | ~2.1 M | ~14 M | ~3.1 GB |
 | **Total** | **27** | **~16 M** | **~79 M** | **~~21.8 GB** |
 
 *Figures rounded. Exact counts available in the accompanying metadata file.*
