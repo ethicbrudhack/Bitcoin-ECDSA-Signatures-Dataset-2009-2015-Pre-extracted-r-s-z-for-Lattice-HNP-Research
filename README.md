@@ -122,7 +122,7 @@ This corpus is intended for, but not limited to, the following lines of investig
 
 ## 7. Access and Licensing
 
-The extraction and cryptographic verification of this corpus required approximately **14 days of continuous computation** on a dedicated high-memory server (parsing ~150 GB of raw blockchain data, verifying each signature against the pubkey and transaction hash, and deduplicating by public key).
+A dataset of this scope requires weeks to months of extraction work – synchronizing a full node, parsing DER signatures, computing z for each input, verifying every signature cryptographically, and deduplicating by public key – all of which this corpus delivers ready‑to‑use for lattice‑based cryptanalysis.
 
 **The full corpus is not publicly hosted on GitHub** due to its size (~19 GB uncompressed). Access is provided under a **Research Use License** to academic institutions, research groups, and security firms after a contribution covering the computational costs of extraction and validation.
 
