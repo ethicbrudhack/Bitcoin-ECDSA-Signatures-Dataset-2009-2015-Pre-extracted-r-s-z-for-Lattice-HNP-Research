@@ -54,8 +54,8 @@ Keys are lexicographically sorted within each file, enabling efficient streaming
 | 2010 – 2012-12 | 1 | ~7.7 M | ~20 M | ~5.3 GB |
 | 2013 (monthly) | 12 | ~5.2 M | ~40 M | ~9.6 GB |
 | 2014 (monthly) | 12 | ~2.7 M | ~16 M | ~3.8 GB |
-| 2015-01 – 2015-02 | 2 | ~0.5 M | ~3 M | ~0.7 GB |
-| **Total** | **27** | **~16 M** | **~79 M** | **~19.4 GB** |
+| 2015-01 – 2015-02 | 2 | ~0.5 M | ~3 M | ~3.1 GB |
+| **Total** | **27** | **~16 M** | **~79 M** | **~~21.8 GB** |
 
 *Figures rounded. Exact counts available in the accompanying metadata file.*
 
@@ -124,7 +124,7 @@ This corpus is intended for, but not limited to, the following lines of investig
 
 A dataset of this scope requires weeks to months of extraction work – synchronizing a full node, parsing DER signatures, computing z for each input, verifying every signature cryptographically, and deduplicating by public key – all of which this corpus delivers ready‑to‑use for lattice‑based cryptanalysis.
 
-**The full corpus is not publicly hosted on GitHub** due to its size (~19 GB uncompressed). Access is provided under a **Research Use License** to academic institutions, research groups, and security firms after a contribution covering the computational costs of extraction and validation.
+**The full corpus is not publicly hosted on GitHub** due to its size (~22 GB uncompressed). Access is provided under a **Research Use License** to academic institutions, research groups, and security firms after a contribution covering the computational costs of extraction and validation.
 
 > **This is a transfer of usage rights for lawful research purposes, not a sale of data.** No private keys, funds, or personally identifiable information are included — the corpus consists exclusively of cryptographic signature tuples.
 
