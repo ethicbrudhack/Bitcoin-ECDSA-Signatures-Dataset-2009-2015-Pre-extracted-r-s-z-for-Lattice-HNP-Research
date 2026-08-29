@@ -1,0 +1,71 @@
+{
+  "corpus": "Bitcoin ECDSA Signatures (r, s, z) — Pre-extracted & Verified",
+  "version": "1.0",
+  "date": "2026-08",
+  "description": "Cryptographically verified ECDSA signature tuples extracted from P2PKH inputs of the Bitcoin blockchain, grouped by public key and sorted lexicographically.",
+  "total": {
+    "files": 65,
+    "public_keys": 16000000,
+    "signatures": 79000000,
+    "size_gb_uncompressed": 45.0,
+    "size_gb_compressed_rar": 20.5
+  },
+  "periods": [
+    {
+      "period": "2010 – 2012-12",
+      "files": 1,
+      "public_keys": 7758968,
+      "signatures": 20000000,
+      "size_gb": 5.3
+    },
+    {
+      "period": "2013",
+      "files": 12,
+      "public_keys": 5200000,
+      "signatures": 40000000,
+      "size_gb": 9.6
+    },
+    {
+      "period": "2014",
+      "files": 42,
+      "public_keys": 2700000,
+      "signatures": 16000000,
+      "size_gb": 20.0
+    },
+    {
+      "period": "2015-01 – 2015-02",
+      "files": 10,
+      "public_keys": 500000,
+      "signatures": 3000000,
+      "size_gb": 10.1
+    }
+  ],
+  "sample": {
+    "file": "sample.json",
+    "size_mb": 10.5,
+    "public_keys": 14967,
+    "signatures": 41773,
+    "source": "btc_groups_2013_Q1.json (first keys, representative distribution)"
+  },
+  "format": {
+    "type": "JSON dictionary",
+    "key": "<pubkey_x_hex>_<pubkey_y_hex>",
+    "value": "[[r_hex, s_hex, z_hex], ...]",
+    "encoding": "hex (lowercase), 64 characters per field",
+    "s_value": "original non-low-S (as signed, not BIP-62 normalized)",
+    "sorting": "lexicographic by key string",
+    "access": "streaming-friendly via ijson (no full-file loading required)"
+  },
+  "verification": {
+    "method": "ECDSA verification: (s^-1·z)·G + (s^-1·r)·Q == R on secp256k1",
+    "library": "ecdsa (Python) + coincurve (libsecp256k1 via OpenSSL)",
+    "rate": "100.00% — all signatures verified against public key and transaction hash",
+    "script": "verify_sig.py (included in repository)"
+  },
+  "extraction": {
+    "pipeline": "BigQuery Storage API + multi-worker Python streaming + local cryptographic verification",
+    "source": "Bitcoin blockchain blocks 1 – 345,000 (Genesis to February 2015)",
+    "input_types": "P2PKH (legacy, OP_CHECKSIG / OP_CHECKSIGVERIFY) — pay-to-pubkey-hash only",
+    "z_computation": "double-SHA256 of modified transaction (sighash ALL, non-segwit)"
+  }
+}
