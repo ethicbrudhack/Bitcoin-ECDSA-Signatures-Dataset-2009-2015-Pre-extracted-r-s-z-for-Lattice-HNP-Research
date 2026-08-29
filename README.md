@@ -1,7 +1,6 @@
 # A Pre-Extracted Corpus of Bitcoin ECDSA Signatures (2010–2015) for Lattice-Based Cryptanalysis
 
 [![Purpose: Research](https://img.shields.io/badge/Purpose-Academic_Research-blue)](.)
-[![Data: ECDSA](https://img.shields.io/badge/Data-Type-ECDSA_Signatures-green)](.)
 [![Verification: 100%](https://img.shields.io/badge/Verification-Cryptographically_Verified-brightgreen)](.)
 [![License: Restricted](https://img.shields.io/badge/License-Research_Use_Only-orange)](.)
 
