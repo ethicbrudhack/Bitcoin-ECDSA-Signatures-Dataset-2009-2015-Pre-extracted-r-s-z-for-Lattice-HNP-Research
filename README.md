@@ -5,7 +5,7 @@
 [![License: Restricted](https://img.shields.io/badge/License-Research_Use_Only-orange)](.)
 
 ---
-
+download link: https://1fichier.com/?qlu3mszhf04ea63ciw7p
 ## Abstract
 
 This repository provides a systematically extracted, deduplicated, and cryptographically verified corpus of ECDSA signatures from the Bitcoin blockchain, spanning **January 2010 through February 2015**. Each entry contains the full tuple `(r, s, z)` grouped by public key, where `z` denotes the correctly computed double-SHA256 message hash of the respective transaction input (P2PKH). The dataset is designed to facilitate cryptanalytic research on elliptic curve signature schemes — in particular, lattice-based attacks on biased or reused nonces (LLL/BKZ, Hidden Number Problem), weak randomness analysis, and related work on ECDSA security under non-uniform `k` distributions.
